@@ -6,6 +6,7 @@ import { ArrowLeft } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 import React from "react";
 import PurpleIcon from "../PurpleIcon";
+import CreateWebinarButton from "../CreateWebinarButton";
 
 type Props = { user: User }
 
@@ -36,6 +37,7 @@ const Header = ({ user }: Props) => {
                 <PurpleIcon>
                     <LightningIcon />
                 </PurpleIcon>
+                <CreateWebinarButton />
             </div>
         </div>
     )
