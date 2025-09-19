@@ -3,7 +3,7 @@ import React from 'react';
 import { usePathname } from 'next/navigation';
 import { Spotlight } from '@/icons/Spotlight';
 import { sidebarData } from '@/lib/data';
-import { Tooltip, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import Link from 'next/link';
 import { UserButton } from '@clerk/nextjs';
 
@@ -25,21 +25,23 @@ const Sidebar = (Props: Props) => {
                         <TooltipProvider key={item.id}>
                             <Tooltip>
                                 <TooltipTrigger asChild>
-                                    <Link 
+                                    <Link
                                         href={item.link}
                                         className={`flex items-center gap-2 cursor-pointer rounded-lg p-2
-                                            ${pathname.includes(item.link) ? 
+                                            ${pathname.includes(item.link) ?
                                                 'iconBackground' : ''
                                             }`}
                                     >
-                                        <item.icon  
-                                            className={`w-4 h-4 ${
-                                                pathname.includes(item.link) ? '' :
+                                        <item.icon
+                                            className={`w-4 h-4 ${pathname.includes(item.link) ? '' :
                                                 'opacity-80'
-                                            }`}
+                                                }`}
                                         />
                                     </Link>
                                 </TooltipTrigger>
+                                <TooltipContent side="right">
+                                    <span className='text-sm'>{item.title}</span>
+                                </TooltipContent>
                             </Tooltip>
                         </TooltipProvider>
                     ))}
