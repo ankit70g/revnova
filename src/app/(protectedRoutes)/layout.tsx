@@ -25,7 +25,7 @@ const Layout = async ({ children }: Props) => {
         {/* Wrap header + content in a centered container */}
         <div className="max-w-7xl w-full mx-auto px-6 sm:px-10 lg:px-16">
           <Header user={userExist.user} />
-          {children}
+          <div className="flex-1 py-10">{children}</div>
         </div>
       </div>
     </div>
